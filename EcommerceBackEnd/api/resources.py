@@ -1,7 +1,10 @@
+
+
 from tastypie.resources import ModelResource
 from .models import Product
 from .models import Category
 from tastypie.authorization import Authorization
+from django.core import serializers
 
 
 class ProductResource(ModelResource):
@@ -16,3 +19,9 @@ class CategoryResource(ModelResource):
         queryset = Category.objects.all()
         resource_name = 'category'
         authorization = Authorization()
+
+
+
+
+
+

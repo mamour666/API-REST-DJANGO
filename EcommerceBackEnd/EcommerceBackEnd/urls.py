@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from api.resources import ProductResource
 from api.resources import CategoryResource
+from django.conf.urls.static import static
+from django.conf import settings
+
+
+
 
 product_resource = ProductResource()
 category_resource = CategoryResource()
-
 
 
 urlpatterns = [
@@ -28,4 +32,4 @@ urlpatterns = [
     path('api/',include(product_resource.urls)),
     path('api/',include(category_resource.urls)),
 
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
